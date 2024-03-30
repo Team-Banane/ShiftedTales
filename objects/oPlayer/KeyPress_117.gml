@@ -1,0 +1,16 @@
+global.playerHP=99;
+global.playerMaxHP=99;
+global.playerLV=19;
+global.playerEXP=999;
+global.playerATK=99;
+global.playerDEF=99;
+global.Inventory1=0;
+global.Inventory2=0;
+global.Inventory3=0;
+global.Inventory4=0
+global.Inventory5=0;
+global.Inventory6=0;
+global.Inventory7=0;
+global.Inventory8=0;
+global.playerGold=9999;
+global.playername="Chara";

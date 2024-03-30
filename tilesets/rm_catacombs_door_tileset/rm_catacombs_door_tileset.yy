@@ -1,0 +1,42 @@
+{
+  "$GMTileSet":"",
+  "%Name":"rm_catacombs_door_tileset",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"rm_catacombs_door_tileset",
+  "out_columns":1,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Tile Sets",
+    "path":"folders/Tile Sets.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"rm_catacombs_door",
+    "path":"sprites/rm_catacombs_door/rm_catacombs_door.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimation":{
+    "FrameData":[0,],
+    "SerialiseFrameCount":1,
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":131,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":125,
+  "tilexoff":0,
+  "tileyoff":1,
+  "tile_count":1,
+}
