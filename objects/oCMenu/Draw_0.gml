@@ -1,29 +1,106 @@
-if (global.menuactive = true){
-    draw_set_color(col)
-    draw_sprite_ext(sLightDialogue,0,camera_get_view_x(view_camera[0])+16,camera_get_view_y(view_camera[0])+16, 0.2439862, 0.859375, 0, col, 1000);
-    draw_sprite_ext(sLightDialogue,0,camera_get_view_x(view_camera[0])+16,camera_get_view_y(view_camera[0])+74, 0.2439862, 1.173397, 0, col, 1000);
-    draw_set_font(fText)
-    draw_text(camera_get_view_x(view_camera[0])+24,camera_get_view_y(view_camera[0])+22,global.playername)
-    draw_set_font(fBattleMenutext)
-    draw_text(camera_get_view_x(view_camera[0])+24,camera_get_view_y(view_camera[0])+40,"LV")
-    draw_text(camera_get_view_x(view_camera[0])+40,camera_get_view_y(view_camera[0])+40,global.playerLV)
-    draw_text(camera_get_view_x(view_camera[0])+24,camera_get_view_y(view_camera[0])+50,"HP")
-    draw_text(camera_get_view_x(view_camera[0])+40,camera_get_view_y(view_camera[0])+50,global.playerHP)
-    draw_text(camera_get_view_x(view_camera[0])+50,camera_get_view_y(view_camera[0])+50," / ")
-    draw_text(camera_get_view_x(view_camera[0])+60,camera_get_view_y(view_camera[0])+50,global.playerMaxHP)
-    draw_text(camera_get_view_x(view_camera[0])+24,camera_get_view_y(view_camera[0])+58,"G")
-    draw_text(camera_get_view_x(view_camera[0])+40,camera_get_view_y(view_camera[0])+58,global.playerGold)
+/// @description Insert description here
+// You can write your code in this editor
+
+if !Menu 
+	exit;
+
+var initBox1X = camera_get_view_x(view_camera[0]) + 20;
+var initBox1Y = camera_get_view_y(view_camera[0]) + 20;
+
+if (display_get_height() / 2 < oPlayer.y - camera_get_view_y(view_camera[0])) initBox1Y =  camera_get_view_y(view_camera[0]) + display_get_height() - 80;
+
+CreateBox([global.playername], initBox1X, initBox1Y, 75, 55, fDeterminationSansWeb, 6, 6, 20);
+
+
+draw_set_font(fBattleMenutext);
+draw_text(initBox1X + 8, initBox1Y + 25, "LV  " + string(global.playerLV));
+draw_text(initBox1X + 8, initBox1Y+ 34, "HP  " + string(global.playerHP) + "/" + string(global.playerMaxHP));
+draw_text(initBox1X + 8, initBox1Y + 43, "G   " + string(global.playerGold));
+
+var initBox2X = initBox1X;
+var initBox2Y = initBox1Y + 60;
+
+if (display_get_height() / 2 < oPlayer.y - camera_get_view_y(view_camera[0])) initBox2Y = initBox1Y - 82;
+
+draw_set_color(c_white);
+CreateBox(["ITEM", "STAT", "CELL"], initBox2X, initBox2Y, 75, 78, fDeterminationSansWeb, 27, 11, 20);
+
+draw_set_color(c_gray);
+if (IsPlayerInventoryEmpty()) draw_text(initBox2X + 27, initBox2Y + 11, "ITEM" )
+
+if keyboard_check_pressed(ord("X")) {
+	if CurrentOptionMenu == 0 {
+		Menu = false;
+		oPlayer.can_move = true;
+	}
+	else if CurrentOptionMenu > 0 {
+		SelectedOptionMenu = 1;
+		CurrentOptionMenu = 0;
+	}
 }
 
-if (global.submenu=0) and (global.menuactive=true){
-    draw_sprite(cmenusoul,0,camera_get_view_x(view_camera[0])+28,camera_get_view_y(view_camera[0])+90);
-}
-else if (global.submenu=1) and (global.menuactive==true){
-    draw_sprite(cmenusoul,0,camera_get_view_x(view_camera[0])+28,camera_get_view_y(view_camera[0])+106);
+if CurrentOptionMenu == 0 {
+	if keyboard_check_pressed(vk_up) {
+		audio_play_sound(MenuMove, 1, false);
+		SelectedOptionMenu -= 1;
+		if (SelectedOptionMenu < 1) {
+			SelectedOptionMenu = 3;
+		}
+	}
+	if keyboard_check_pressed(vk_down) {
+		audio_play_sound(MenuMove, 1, false);
+		SelectedOptionMenu += 1;
+		if (SelectedOptionMenu > 3) {
+			SelectedOptionMenu = 1;
+		}
+	}
+	if keyboard_check_pressed(ord("Z")) {
+		audio_play_sound(Select, 1, false);
+		CurrentOptionMenu = SelectedOptionMenu;
+		SelectedOptionMenu = 0;
+		SelectedItem = 0;
+		
+		exit;
+	}
 }
 
-if (global.menuactive=true){
-    draw_set_font(fText)
-    draw_text(camera_get_view_x(view_camera[0])+38,camera_get_view_y(view_camera[0])+90,"ITEM")
-    draw_text(camera_get_view_x(view_camera[0])+38,camera_get_view_y(view_camera[0])+106,"STAT")
+
+
+switch (CurrentOptionMenu)
+{
+	case 0:
+		draw_sprite_ext(Sprite24, 0, initBox2X + 17, initBox2Y - 2 + (20 * SelectedOptionMenu), 1, 1, 0, c_white, 1);
+		break;
+	case 1:
+	
+		CreateBox(["Something", "Something", "Something"], initBox1X + 80, initBox1Y, 165, 175, fDeterminationSansWeb, 24, 16, 14);
+		
+		if keyboard_check_pressed(vk_up) {
+			audio_play_sound(MenuMove, 1, false);
+			SelectedItem -= 1;
+
+		}
+		if keyboard_check_pressed(vk_down) {
+			audio_play_sound(MenuMove, 1, false);
+			SelectedItem += 1;
+
+		}
+
+		
+		draw_sprite_ext(Sprite24, 0, initBox1X + 95, initBox1Y + 24 + (14 * SelectedItem), 1, 1, 0, c_white, 1);
+		break;
+	case 2:
+		CreateBox(["\"" + string(global.playername) + "\"",
+		           "",
+				   "LV  " + string(global.playerLV),
+				   "HP  " + string(global.playerHP) +"/" + string(global.playerMaxHP),
+				   "",
+				   "AT  " + string(global.playerATK) + " (1)" + "          EXP: " + string(global.playerEXP),
+				   "DF  "+ string(global.playerDEF) +" (0)          NEXT: " + string(10),
+				   "",
+				   "WEAPON: " + "placeholder",
+				   "ARMOR: " + "placeholder",
+				   "@N20MONEY: " + string(global.playerGold)], initBox1X + 80, initBox1Y, 170, 210, fDeterminationSansWeb, 14, 18, 15);
+		
+		break;
 }

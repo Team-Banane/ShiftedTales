@@ -1,4 +1,5 @@
- var zPressed = keyboard_check_pressed(ord("Z"));
+
+var zPressed = keyboard_check_pressed(ord("Z"));
 var xPressed = keyboard_check_pressed(ord("X"));
 var cPressed = keyboard_check(ord("C"));
 
@@ -11,8 +12,6 @@ var asteriskLine = false;
 
 var time = get_timer() + 40000;
 while (get_timer() < time) 
-
-
 
 if (zPressed) 
 	delay = 0;
@@ -31,21 +30,6 @@ if (index < string_length(text[currentText]) && delay < 1) {
 	if (char == "@") {
 		switch(string_char_at(text[currentText], index + 1)) {
 				
-				
-
-			case "C":
-			  global.cutscene = true
-			  index--;
-			  stop=true
-			  break;
-			case "1":
-			  instance_create_depth(0,0,-10000,oFirst_Choice)
-			  break;
-			  case "2":
-			  instance_create_depth(0,0,-10000,oSecond_Choice)
-			  index--;
-			  stop=true;
-			  break;
 			case "P":
 				frame1 = int64(string_char_at(text[currentText], index + 2));
 				firstFrame = frame1;
@@ -60,6 +44,9 @@ if (index < string_length(text[currentText]) && delay < 1) {
 				text[currentText] = string_delete(text[currentText], index, 4);
 				index--;
 				stop = true;
+				break;
+			case "S":
+				silenced = !silenced;
 				break;
 		}
 			
@@ -97,9 +84,9 @@ if (index < string_length(text[currentText]) && delay < 1) {
 	        }
 	    }
 		
-		if char != " " && !xPressed
-			audio_play_sound(voice[currentText],0,false);
-	}		
+		if char != " " && !xPressed && !silenced
+			audio_play_sound(voice, 0,false);
+	}
 		
 		
 } else if(delay < 1) 
@@ -138,7 +125,7 @@ if (xPressed || cPressed) && !finishedDrawing {
 	}
     index = string_length(text[currentText]);
 	delay = 0;
-	audio_play_sound(voice[currentText],0,false);
+	audio_play_sound(voice,0,false);
     finishedDrawing = true;
 }
 
@@ -159,7 +146,7 @@ if((counter + 1) % 3 == 0 && (!finishedDrawing || (finishedDrawing && frame != f
 	frame1=frame2;
 	frame2=frame;
 }
-draw_set_font(font[currentText]);
+draw_set_font(font);
 	
 var desiredWidth = 289;
 var desiredHeight = 76;
@@ -169,7 +156,7 @@ scaleX = desiredWidth / sprite_get_width(sprite);
 scaleY = desiredHeight / sprite_get_height(sprite);
 
 // Draw the sprite with the scale factors
-draw_sprite_ext(sprite, 0, textbox_x, textbox_y, scaleX, scaleY, 0, col, 1);
+draw_sprite_ext(sprite, 0, textbox_x, textbox_y, scaleX, scaleY, 0, c_white, 1);
 
 	
 rect_x = textbox_x - 20;
@@ -190,7 +177,7 @@ draw_rectangle(rect_x, rect_y, rect_x + rect_width, rect_y + rect_height, false)
 draw_set_alpha(1);
 
 	
-draw_set_color(col);
+draw_set_color(c_white);
 
 
 portraitOffset= (isProtrait) ? 64 : 0;
@@ -198,19 +185,12 @@ portraitOffset= (isProtrait) ? 64 : 0;
 var max_text_width = (rect_width - 4 * paddingX) - portraitOffset;
 var max_text_height = rect_height - 2 * paddingY;
 
-if (!font[currentText]=fPapyrus){
+	
 draw_text(textbox_x+paddingX + portraitOffset ,textbox_y+paddingY,"* ")
-}
-draw_text_ext(15+textbox_x + paddingX + portraitOffset, textbox_y + paddingY, string_copy(text[currentText], 1, index), linesep, max_text_width);
+draw_text_ext(16+textbox_x + paddingX + portraitOffset, textbox_y + paddingY, string_copy(text[currentText], 1, index), linesep, max_text_width);
 
 var offsetY=36;
 var offsetX=32;
 
-if (isProtrait) and portrait[currentText] != noone{
-image_index = portrait[currentText]
-if image_index = sansSheet{
-	draw_sprite_ext(image_index , frame , textbox_x+offsetX - 20, textbox_y+offsetY - 20, 1, 1, 0, col, 1);
-} else {
-	draw_sprite_ext(image_index , frame , textbox_x+offsetX, textbox_y+offsetY, 1, 1, 0, col, 1);
-}
-}
+if (isProtrait)
+	draw_sprite_ext(portrait, frame, textbox_x+offsetX, textbox_y+offsetY, 1, 1, 0, c_white, 1);

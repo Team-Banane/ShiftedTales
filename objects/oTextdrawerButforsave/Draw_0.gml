@@ -171,9 +171,9 @@ portraitOffset = (isProtrait) ? 64 : 0;
 var max_text_width = (rect_width - 4 * paddingX) - portraitOffset;
 var max_text_height = rect_height - 2 * paddingY;
 
-if (!(font = fPapyrus)) {
+if (!(font = fPapyrus)) 
     draw_text(textbox_x + paddingX + portraitOffset, textbox_y + paddingY, "* ");
-}
+
 draw_text_ext(15 + textbox_x + paddingX + portraitOffset, textbox_y + paddingY, string_copy(text[currentText], 1, index), linesep, max_text_width);
 
 var offsetY = 36;

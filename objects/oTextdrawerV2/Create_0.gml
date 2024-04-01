@@ -1,21 +1,18 @@
-// Create Event of oTextopener
 middle_of_view = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2;
 
-confirm_key = keyboard_check_pressed(ord("Z"))
 
 text[0] = "";
 text[1] = "";
 text[2] = "";
 
-voice[0]=TalkNormal;
-font[0] = fText
+voice=TalkNormal;
+silenced = false;
 
-
-
+font=fText
 
 
 isProtrait=false;
-col = make_colour_rgb(255, 184, 184)
+portrait = asrielSheet;
 frame=0
 
 index = 0;
@@ -32,13 +29,11 @@ if (oPlayer.y>middle_of_view)
 	textbox_y=camera_get_view_y(view_camera[0])+15;
 
 
-portrait[0] = papyrusSheet
-
-paddingX=10;
-paddingY=10;
+paddingX=15;
+paddingY=12;
 
 border = 15; // Border width
-linesep = 17; // Line separation
+linesep = 18; // Line separation
 
 sprite = sLightDialogue; // Replace with your sprite
 spriteWidth = sprite_get_width(sLightDialogue)
@@ -49,4 +44,6 @@ frame1 = 0;
 frame2 = 0;
 firstFrame = 0;
 
+
+col = make_colour_rgb(255, 184, 184)
 

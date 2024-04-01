@@ -12,6 +12,5 @@ instantiated.isProtrait=isProtrait;
 instantiated.portrait=portrait;
 instantiated.finishedDrawing=finishedDrawing;
 
-if change_text{
-instance_destroy()	
-}
+if change_text
+	instance_destroy()	

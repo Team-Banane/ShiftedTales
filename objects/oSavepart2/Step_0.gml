@@ -1,9 +1,10 @@
 // Check keyboard input
-if (keyboard_check_pressed(vk_left)) and (global.saveactive=true) {
+if (keyboard_check_pressed(vk_left)) and (global.saveactive=true) 
     global.saveState = 0; // Set savemenu state to 0
-} else if (keyboard_check_pressed(vk_right)) {
+
+else if (keyboard_check_pressed(vk_right)) 
     global.saveState = 1; // Set savemenu state to 1
-}
+
 
 
 // Check if player presses 'Z' while submenu state is at 0
@@ -19,8 +20,7 @@ if (instance_exists(oSavepart2)) and (keyboard_check_pressed(ord("X"))){
 	global.saveactive=false;
 	global.savedtrue=false
 	
-	instance_destroy()
-	
+	instance_destroy()	
 }
 
 

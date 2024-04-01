@@ -1,7 +1,6 @@
+
 global.border_height = 120;
-global.border_width = 570
-global.border_height = 120;
-global.border_width = 570
+global.border_width = 570;
 
 global.soul_spd = 2;
 global.inv_frames = 0;

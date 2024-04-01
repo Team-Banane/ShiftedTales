@@ -13,25 +13,18 @@ global.playerLV=1;
 global.playerEXP=0;
 global.playerATK=0;
 global.playerDEF=0;
-global.Inventory1=0;
-global.Inventory2=0;
-global.Inventory3=0;
-global.Inventory4=0
-global.Inventory5=0;
-global.Inventory6=0;
-global.Inventory7=0;
-global.Inventory8=0;
+global.inventory[8] = [0,0,0,0,0,0,0,0];
 global.playerGold=0;
 global.playername="FRISK";
 global.InventoryFull=false;
 global.saveactive=false;
 
+global.border_height = 120;
+global.border_width = 570;
 instance_create_layer(x,y,"Top",oCMenu);
 
-if (global.playerLV=19){
+if (global.playerLV=19)
 	draw_text(30,30,"level19")
-}
-
 
 
 // Signal the timer controller to start the timer

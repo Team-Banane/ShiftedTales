@@ -4,9 +4,9 @@
 // Custom function to pad a number with leading zeros
 padZero = function(num, width) {
     var numString = string(num);
-    while (string_length(numString) < width) {
+    while (string_length(numString) < width) 
         numString = "0" + numString;
-    }
+    
     return numString;
 }
 
