@@ -1,6 +1,7 @@
 // Create Event of oTextopener
 middle_of_view = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2;
 
+confirm_key = keyboard_check_pressed(ord("Z"))
 
 text[0] = "";
 text[1] = "";

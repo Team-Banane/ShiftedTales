@@ -27,7 +27,7 @@
   "origin":0,
   "parent":{
     "name":"Objects",
-    "path":"folders/Objects.yy",
+    "path":"folders/Notes/Objects.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"devnstuff",
-    "path":"folders/Objects/devnstuff.yy",
+    "path":"folders/Notes/Objects/devnstuff.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

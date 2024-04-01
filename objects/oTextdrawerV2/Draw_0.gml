@@ -31,6 +31,8 @@ if (index < string_length(text[currentText]) && delay < 1) {
 	if (char == "@") {
 		switch(string_char_at(text[currentText], index + 1)) {
 				
+				
+
 			case "C":
 			  global.cutscene = true
 			  index--;
@@ -204,10 +206,11 @@ draw_text_ext(15+textbox_x + paddingX + portraitOffset, textbox_y + paddingY, st
 var offsetY=36;
 var offsetX=32;
 
-if (isProtrait)
+if (isProtrait) and portrait[currentText] != noone{
 image_index = portrait[currentText]
 if image_index = sansSheet{
 	draw_sprite_ext(image_index , frame , textbox_x+offsetX - 20, textbox_y+offsetY - 20, 1, 1, 0, col, 1);
 } else {
 	draw_sprite_ext(image_index , frame , textbox_x+offsetX, textbox_y+offsetY, 1, 1, 0, col, 1);
+}
 }

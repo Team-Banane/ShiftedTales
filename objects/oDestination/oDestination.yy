@@ -9,7 +9,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Warps",
-    "path":"folders/Objects/Warps.yy",
+    "path":"folders/Notes/Objects/Warps.yy",
   },
   "parentObjectId":null,
   "persistent":false,

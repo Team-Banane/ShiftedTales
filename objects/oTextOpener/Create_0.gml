@@ -6,3 +6,4 @@ isProtrait=false
 global.choice_chosen = 1
 finishedDrawing=false;
 room_index = 0
+change_text = false

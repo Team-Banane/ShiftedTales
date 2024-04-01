@@ -1,6 +1,6 @@
 
-text[0] = "this is a testing text or somethin' I guess"
-text[1] = "or maybe it wasn't a test text..."
+text[0] = "guess this was a testing text!"
+text[1] = "or maybe it isn't"
 
 font[0] = fText
 font[1] = fText

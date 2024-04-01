@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"devnstuff",
-    "path":"folders/Objects/devnstuff.yy",
+    "path":"folders/Notes/Objects/devnstuff.yy",
   },
   "parentObjectId":null,
   "persistent":false,

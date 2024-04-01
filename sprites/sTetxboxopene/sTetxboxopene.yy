@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"Dialogues",
-    "path":"folders/Objects/Dialogues.yy",
+    "path":"folders/Notes/Objects/Dialogues.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -11,4 +11,7 @@ instantiated.voice=voice;
 instantiated.isProtrait=isProtrait;
 instantiated.portrait=portrait;
 instantiated.finishedDrawing=finishedDrawing;
-room_index += 1
+
+if change_text{
+instance_destroy()	
+}
